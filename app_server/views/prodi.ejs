@@ -1,0 +1,17 @@
+<h1>Prodi</h1>
+<table class="table table-striped">
+    <tr>
+        <th>Nama Prodi</th>
+        <th>Fakultas</th>
+        <th>Singkatan</th>
+    </tr>
+    <% prodi.forEach(data => { %>
+    <tr>
+        <td><%= data.nama %></td>        
+        <td><%= data.fakultas_id && data.fakultas_id.nama ? data.fakultas_id.nama : 'Belum ada fakultas' %> </td>
+        <td><%= data.singkatan %></td>
+    </tr>
+        
+    <% }) %>
+
+</table>

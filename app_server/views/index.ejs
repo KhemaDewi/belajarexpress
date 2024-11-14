@@ -1,0 +1,10 @@
+<img src="./images/home.jpg" alt="" srcset="">
+<h1>Home</h1>
+  <p>Ini halaman home</p>
+    <h4>Berita Terkini</h4>
+    <% berita.forEach(data => { %> 
+        <h5><%= data.judul %></h5> 
+        <p><%= data.isi %></p>
+        <% }) %>
+</body>
+</html>
