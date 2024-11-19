@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const connectDB = async () => {
     try {
         await mongoose.connect(
-            "mongodb://khemadewi2226240083:khemadewi2226240083@cluster0-shard-00-00.symwr.mongodb.net:27017,cluster0-shard-00-01.symwr.mongodb.net:27017,cluster0-shard-00-02.symwr.mongodb.net:27017/?ssl=true&replicaSet=atlas-kk54v2-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0"
+            "mongodb+srv://khemadewi2226240083:7ZXgynuJ6ggp4EVZ@cluster0.symwr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+            // "mongodb://localhost:27017/mdpsi5a"
         );
         console.log("mongoDB Connected...");
     } catch (error){
