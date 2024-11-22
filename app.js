@@ -16,6 +16,7 @@ const fakultasRouter = require("./app_server/routes/fakultas");
 const prodiRouter = require("./app_server/routes/prodi");
 const prodiRouterApi = require("./app_api/routes/prodi");
 const authRouterApi = require("./app_api/routes/auth");
+const mahasiswaRouterApi = require("./app_api/routes/mahasiswa");
 
 require("dotenv").config();//load environment variables
 
@@ -40,7 +41,7 @@ app.use('/prodi', prodiRouter);
 app.use("/api/fakultas", fakultasRouterApi);
 app.use("/api/prodi", prodiRouterApi);
 app.use("/api/auth", authRouterApi);
-
+app.use("/api/mahasiswa", mahasiswaRouterApi);
 connectDB();
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
