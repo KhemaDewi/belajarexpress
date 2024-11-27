@@ -13,15 +13,15 @@ exports.register= async (req,res) => {
         
         }
 
-        user = new User({name, email,password,role});//membuat pengguna baru dengan data yang diberikan
-        await User.save();// menyimpan pengguna baru ke database
+        user = new User({name, email, password, role});//membuat pengguna baru dengan data yang diberikan
+        await user.save();// menyimpan pengguna baru ke database
 
         const payload = {userId: user.id, role: user.role};//membuat payload untuk token
-        const token = jwt.sign(payload,process.env.JWT_SECRET,{
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
             expiresIn: "1h",
         });//membuat jwt token
 
-        res.json({token});//mengirim token sebgai respons
+        res.json({ token });//mengirim token sebgai respons
     } catch (error) {
         res.status(500).json({message: error.message});//mengirim pesan error jika ada
     }
@@ -45,11 +45,11 @@ exports.register= async (req,res) => {
            }
 
            const payload = {userId: user.id, role: user.role};//membuat payload token dengan ID dan role pengguna
-           const token = jwt.sign(payload,process.env.JWT_SECRET,{
+           const token = jwt.sign(payload, process.env.JWT_SECRET, {
             expiresIn: "1h",
            });//membuat jwt token
 
-           res.json({token});//mengirim token sebahai respons
+           res.json({ token });//mengirim token sebahai respons
         } catch (error) {
             res.status(500).json({message: error.message});//kirim pesan error jika ada masalah server
         }

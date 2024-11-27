@@ -9,7 +9,7 @@ const authMiddleware = (req,res, next)=> {
     }
     //jika ada token
     try{
-        const decoded = jwt.verify(token,process.env.JWT_SECRET);//verifikas token dnean secret
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);//verifikas token dnean secret
         req.user = decoded;//menyimpan payload token ke req.user
         next();// lanjutkan ke middleware berikutnya
     } catch (error){
