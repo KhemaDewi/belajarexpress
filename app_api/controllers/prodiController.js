@@ -1,7 +1,7 @@
 const Prodi = require("../models/prodi");
 const getAllprodi = async (req, res) => {
     try {
-        const prodi = await prodi.find().populate("fakultas_id","nama singkatan");
+        const prodi = await Prodi.find().populate("fakultas_id","nama singkatan");
 
         res.status(200).json(prodi);
     } catch (err) {
@@ -11,7 +11,7 @@ const getAllprodi = async (req, res) => {
 
 const getprodiById = async (req, res) => {
     try {
-        const prodi = await prodi.findById(req.params.id);
+        const prodi = await Prodi.findById(req.params.id);
         if (!prodi)
             return res.status(404).json({message: "prodi not found"});
 
@@ -22,7 +22,7 @@ const getprodiById = async (req, res) => {
 }
 
 const createprodi = async (req, res) => {
-    const prodi = new prodi({
+    const prodi = new Prodi({
         nama: req.body.nama,
         singkatan: req.body.singkatan,
         fakultas_id: req.body.fakultas_id,
@@ -38,7 +38,7 @@ const createprodi = async (req, res) => {
 
 const updateprodi = async (req, res) => {
     try {
-        const prodi = await prodi.findById(req.params.id);
+        const prodi = await Prodi.findById(req.params.id);
 
         if (!prodi)
             return res.status(404).json({ message: "prodi not found" });
@@ -62,7 +62,7 @@ const updateprodi = async (req, res) => {
 
 const deleteprodi = async (req, res) => {
     try {
-        const prodi = await prodi.findById(req.params.id);
+        const prodi = await Prodi.findById(req.params.id);
 
         if (!prodi)
             return res.status(404).json({ message: "prodi not found" });

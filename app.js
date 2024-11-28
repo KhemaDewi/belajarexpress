@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const expressLayout = require("express-ejs-layouts");
+const expressLayouts = require("express-ejs-layouts");
 const connectDB = require("./app_api/models/db");
 
 var indexRouter = require('./app_server/routes/index');
@@ -25,13 +25,14 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname,'app_server', 'views'));
 app.set('view engine', 'ejs');
+app.set('layout','main');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(expressLayout);
+app.use(expressLayouts);
 
 app.use('/', indexRouter);
 app.use("/fakultas", fakultasRouter);
